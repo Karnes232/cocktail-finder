@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './sass/App.scss';
+import Title from './components/Title'
+import Search from './components/Search';
+import DrinkInfo from './components/DrinkInfo';
 
 function App() {
+  const [drink, setDrink] = useState({})
+  
+  const getRandomCocktail = async () => {
+      const res = await fetch(
+        'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+      );
+      const json = await res.json();
+       setDrink(json.drinks[0])
+  }
+
+  const sendDataToParent = (index) => {
+    setDrink(index);
+  };
+
+  useEffect(() => {
+    getRandomCocktail()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <Title />
+        <Search sendDataToParent={sendDataToParent}/>
+        <DrinkInfo drink={drink}/>    
+      </div>  
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.App {
+    min-height: 92vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: #2BC0E4;  
+    background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  
+    background: linear-gradient(to right, #EAECC6, #2BC0E4); 
+
+    font-size: $default-font-size;
+
+    .container {
+        max-width: 100rem;
+    }
+
+    @include respond(tab-port) {
+        min-height: 100vh;
+        height: auto;
+     }
+    
+}

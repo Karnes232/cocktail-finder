@@ -1,0 +1,67 @@
+.search {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .form {
+        margin: 1rem 0;
+        @include respond(phone) {
+            margin: 1rem auto;
+         }
+        &__input {
+            font-size: 1.5rem;
+            font-family: inherit;
+            color: inherit;
+            padding: 1.5rem 2rem;
+            border-radius: 2px;
+            background-color: rgba($color-white, .5);
+            border: none;
+            border-bottom: 3px solid transparent;
+            width: 100%;
+            display: block;
+            transition: all .3s;
+            margin-bottom: 3rem;
+    
+            @include respond(tab-port) {
+                width: 100%;
+             }
+    
+            &:focus {
+                outline: none;
+                box-shadow: 0 1rem 2rem rgba($color-black, .1);
+                border-bottom: 3px solid $color-grey-dark;
+            }
+    
+            &:focus:invalid {
+                border-bottom: 3px solid $color-grey-dark-3;
+            }
+    
+            &::-webkit-input-placeholder {
+                color: $color-grey-dark-2;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+                color: $color-grey-dark-2;
+            }
+            
+        }
+        
+        &__buttons {
+            width: 45%;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 1rem 2.2rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.5rem;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    }
+
+}

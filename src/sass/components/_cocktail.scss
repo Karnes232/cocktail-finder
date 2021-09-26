@@ -1,0 +1,35 @@
+.cocktail-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    &__name {
+        font-size: 3.5rem;
+    }
+
+    &__photo-container {
+        img {
+            width: 30rem;
+        }
+    }
+
+    &__ingredients {
+        display: flex;
+        flex-direction: row;
+        width: 30rem;
+
+        ul {
+            list-style: none;
+        }
+    }
+
+    &__ingredient {
+        padding-left: 4rem;
+    }    
+
+    &__measurement {
+        width: 10rem;
+    }
+}
